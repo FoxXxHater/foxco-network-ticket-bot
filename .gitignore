@@ -3,6 +3,7 @@
 .vscode/
 node_modules/
 prisma/
+from_server/
 
 # files
 *.env*

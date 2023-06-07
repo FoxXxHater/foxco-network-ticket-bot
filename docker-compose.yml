@@ -1,19 +1,19 @@
 version: "3.9"
 
 services:
-  mysql:
-    image: mysql:8
-    restart: unless-stopped
-    hostname: mysql
-    networks:
-      - discord-tickets
-    volumes:
-      - tickets-mysql:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: tickets
-      MYSQL_PASSWORD: insecure # change this to a secure password
-      MYSQL_ROOT_PASSWORD: insecure # change this to a (different) secure password
-      MYSQL_USER: tickets
+#  mysql:
+#    image: mysql:8
+#    restart: unless-stopped
+#    hostname: mysql
+#    networks:
+#      - discord-tickets
+#    volumes:
+#      - tickets-mysql:/var/lib/mysql
+#    environment:
+#      MYSQL_DATABASE: tickets
+#      MYSQL_PASSWORD: insecure # change this to a secure password
+#      MYSQL_ROOT_PASSWORD: insecure # change this to a (different) secure password
+#      MYSQL_USER: tickets
 
   bot:
     image: eartharoid/discord-tickets:4.0
