@@ -23,24 +23,24 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/discord-tickets/bot.git"
+		"url": "git+https://github.com/FoxXxHater/foxco-network-ticket-bot.git"
 	},
 	"keywords": [
 		"discord",
 		"tickets",
 		"bot"
 	],
-	"author": "eartharoid",
+	"author": "eartharoid edited by FoxCo-Network",
 	"license": "GPL-3.0",
 	"bugs": {
-		"url": "https://github.com/discord-tickets/bot/issues"
+		"url": "https://github.com/FoxXxHater/foxco-network-ticket-bot/issues"
 	},
-	"homepage": "https://discordtickets.app",
+	"homepage": "https://foxco-network.de/",
 	"engines": {
 		"node": ">=18"
 	},
 	"dependencies": {
-		"@discord-tickets/settings": "^2.1.4",
+		"@foxco-portal/settings": "^2.1.4",
 		"@eartharoid/dbf": "^0.4.0",
 		"@eartharoid/dtf": "^2.0.1",
 		"@eartharoid/i18n": "^1.2.1",
