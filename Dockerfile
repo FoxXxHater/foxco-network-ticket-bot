@@ -14,7 +14,8 @@ RUN CI=true pnpm install --prod --frozen-lockfile
 COPY --link . .
 
 FROM node:18-alpine AS runner
-RUN adduser --disabled-password --home /home/container container
+RUN apk --no-cache add curl \
+	&& adduser --disabled-password --home /home/container container
 USER container
 ENV USER=container \
 	HOME=/home/container \
@@ -22,7 +23,7 @@ ENV USER=container \
 	HTTP_HOST=0.0.0.0 \
 	HTTP_PORT=80
 WORKDIR /home/container
-COPY --from=builder /build ./
+COPY --from=builder --chown=container:container /build ./
 EXPOSE ${HTTP_PORT}/tcp
 ENTRYPOINT [ "/home/container/scripts/start.sh" ]
 HEALTHCHECK --interval=15s --timeout=5s --start-period=60s \
