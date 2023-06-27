@@ -28,6 +28,7 @@ const {
 	decrypt,
 	encrypt,
 } = new Cryptr(process.env.ENCRYPTION_KEY);
+const { getSUID } = require('../logging');
 
 /**
  * @typedef {import('@prisma/client').Category &
@@ -419,8 +420,6 @@ module.exports = class TicketManager {
 			topic: `${creator}${topic?.length > 0 ? ` | ${topic}` : ''}`,
 		});
 
-		if (category.image) await channel.send(category.image);
-
 		const needsStats = /{+\s?(avgResponseTime|avgResolutionTime)\s?}+/i.test(category.openingMessage);
 		const statsCacheKey = `cache/category-stats/${categoryId}`;
 		let stats = await this.client.keyv.get(statsCacheKey);
@@ -458,6 +457,8 @@ module.exports = class TicketManager {
 						.replace(/{+\s?avgResolutionTime\s?}+/gi, stats?.avgResolutionTime),
 				),
 		];
+
+		if (category.image) embeds[0].setImage(category.image);
 
 		if (answers) {
 			embeds.push(
@@ -682,7 +683,7 @@ module.exports = class TicketManager {
 				userId: interaction.user.id,
 			});
 		} catch (error) {
-			const ref = require('crypto').randomUUID();
+			const ref = getSUID();
 			this.client.log.warn.tickets('An error occurred whilst creating ticket', channel.id);
 			this.client.log.error.tickets(ref);
 			this.client.log.error.tickets(error);

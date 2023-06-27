@@ -27,12 +27,11 @@ module.exports = class QuestionsModal extends Modal {
 
 		if (id.edit) {
 			await interaction.deferReply({ ephemeral: true });
+
 			const { category } = await client.prisma.ticket.findUnique({
 				select: { category: { select: { customTopic: true } } },
 				where: { id: interaction.channel.id },
 			});
-			let topic;
-			if (category.customTopic) topic = interaction.fields.getTextInputValue(category.customTopic);
 			const select = {
 				createdById: true,
 				guild: {
@@ -50,6 +49,14 @@ module.exports = class QuestionsModal extends Modal {
 				select,
 				where: { id: interaction.channel.id },
 			});
+
+			let topic;
+			if (category.customTopic) {
+				const customTopicAnswer = original.questionAnswers.find(a => a.question.id === category.customTopic);
+				if (!customTopicAnswer) throw new Error('Die Antwort wurde nicht gefunden');
+				topic = interaction.fields.getTextInputValue(String(customTopicAnswer.id));
+			}
+
 			const ticket = await client.prisma.ticket.update({
 				data: {
 					questionAnswers: {
@@ -58,7 +65,7 @@ module.exports = class QuestionsModal extends Modal {
 							where: { id: Number(f.customId) },
 						})),
 					},
-					topic,
+					topic: topic ? encrypt(topic) : null,
 				},
 				select,
 				where: { id: interaction.channel.id },

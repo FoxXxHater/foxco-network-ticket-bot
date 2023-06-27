@@ -11,6 +11,7 @@ const { join } = require('path');
 const YAML = require('yaml');
 const TicketManager = require('./lib/tickets/manager');
 const sqliteMiddleware = require('./lib/middleware/prisma-sqlite');
+const ms = require('ms');
 
 module.exports = class Client extends FrameworkClient {
 	constructor(config, log) {
@@ -51,15 +52,34 @@ module.exports = class Client extends FrameworkClient {
 	}
 
 	async login(token) {
+		const levels = ['error', 'info', 'warn'];
+		if (this.config.logs.level === 'debug') levels.push('query');
+
 		/** @type {PrismaClient} */
-		this.prisma = new PrismaClient();
+		this.prisma = new PrismaClient({
+			log: levels.map(level => ({
+				emit: 'event',
+				level,
+			})),
+		});
+
+		this.prisma.$on('error', e => this.log.error.prisma(`${e.target} ${e.message}`));
+		this.prisma.$on('info', e => this.log.info.prisma(`${e.target} ${e.message}`));
+		this.prisma.$on('warn', e => this.log.warn.prisma(`${e.target} ${e.message}`));
+		this.prisma.$on('query', e => this.log.debug.prisma(e));
+
 		if (process.env.DB_PROVIDER === 'sqlite') {
+			// rewrite queries that use unsupported features
 			this.prisma.$use(sqliteMiddleware);
-			// make sqlite faster,
-			// and the missing parentheses are not a mistake, `$queryRaw` is a tagged template literal
+			// make sqlite faster (missing parentheses are not a mistake, `$queryRaw` is a tagged template literal)
 			this.log.debug(await this.prisma.$queryRaw`PRAGMA journal_mode=WAL;`); // https://www.sqlite.org/wal.html
 			this.log.debug(await this.prisma.$queryRaw`PRAGMA synchronous=normal;`); // https://www.sqlite.org/pragma.html#pragma_synchronous
+
+			setInterval(async () => {
+				this.log.debug(await this.prisma.$queryRaw`PRAGMA optimize;`); // https://www.sqlite.org/pragma.html#pragma_optimize
+			}, ms('6h'));
 		}
+
 		this.keyv = new Keyv();
 		return super.login(token);
 	}
