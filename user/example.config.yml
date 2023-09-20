@@ -22,11 +22,11 @@ logs:
   level: info
 presence:
   activities:
-    - name: /new
-    - name: with {totalTickets} tickets
-    - name: "{openTickets} tickets"
+    - name: "foxco-network.de"
+    - name: "mit {totalTickets} Tickets gesamt"
+    - name: "{openTickets} offene Tickets"
       type: 3
-    - name: "{avgResponseTime} response time"
+    - name: "{avgResponseTime} Antwortzeit"
       type: 3
   interval: 20
   status: online

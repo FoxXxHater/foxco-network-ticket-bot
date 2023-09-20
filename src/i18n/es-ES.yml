@@ -123,7 +123,7 @@ commands:
         title: ✅ Prioridad establecida
     release:
       description: Liberar (desmarcar) un ticket
-      name: liberar
+      name: lanzar
     remove:
       options:
         member:
@@ -151,9 +151,6 @@ commands:
           name: ticket
       name: transcripción
       description: Obtener la transcripción de un ticket
-      not_staff:
-        title: ❌ Error
-        description: Solamente el staff puede acceder a los tickets de otros usuarios.
     tickets:
       not_staff:
         description: Solamente el staff puede acceder a los tickets de otros usuarios.

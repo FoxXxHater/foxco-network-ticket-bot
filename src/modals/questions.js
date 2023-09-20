@@ -53,7 +53,7 @@ module.exports = class QuestionsModal extends Modal {
 			let topic;
 			if (category.customTopic) {
 				const customTopicAnswer = original.questionAnswers.find(a => a.question.id === category.customTopic);
-				if (!customTopicAnswer) throw new Error('Custom topic answer not found');
+				if (!customTopicAnswer) throw new Error('Die Antwort wurde nicht gefunden');
 				topic = interaction.fields.getTextInputValue(String(customTopicAnswer.id));
 			}
 
