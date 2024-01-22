@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { colours } = require('leeks.js');
 const figlet = require('figlet');
 const link = require('terminal-link');

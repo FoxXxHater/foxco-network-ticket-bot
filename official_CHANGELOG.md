@@ -1,3 +1,74 @@
+## [4.0.14](https://github.com/discord-tickets/bot/compare/v4.0.13...v4.0.14) (2024-01-21)
+
+
+### Bug Fixes
+
+* `.gitignore` ([38ae314](https://github.com/discord-tickets/bot/commit/38ae3149e74b8bf2e6e9b974daa9f554adf7a406))
+* `postinstall` search path ([18e63bf](https://github.com/discord-tickets/bot/commit/18e63bf2dc62357bc6efcccddf35148f306369fa))
+* actually revoke the token ([3e7127a](https://github.com/discord-tickets/bot/commit/3e7127a3d9e4061fffac1ae47f01369069365d99))
+* create guild settings to allow commands before configuration ([00f16be](https://github.com/discord-tickets/bot/commit/00f16be7903e50b061dd169ff69df30aeb3d7083))
+* **docker:** permissions ([3bca48f](https://github.com/discord-tickets/bot/commit/3bca48f159d1da64ac9a586a0c786172e05a09b3))
+* **docker:** permissions ([036cbaf](https://github.com/discord-tickets/bot/commit/036cbaf47e4a39c6398bbf5516ea7ef7139f596d))
+* **docker:** permissions (again) ([a349b0e](https://github.com/discord-tickets/bot/commit/a349b0e0ff2afb688da11ec474b30040432e800c))
+* **docker:** start script ([#513](https://github.com/discord-tickets/bot/issues/513)) ([978eb92](https://github.com/discord-tickets/bot/commit/978eb9278168ef91cc4809e52a1deb1979a47001))
+* error handling (closes [#506](https://github.com/discord-tickets/bot/issues/506)) ([1b0b0a2](https://github.com/discord-tickets/bot/commit/1b0b0a22f94868fb6d3ca6b48ef1975cdfdd82e2))
+* **http:** fastify dependencies (closes [#461](https://github.com/discord-tickets/bot/issues/461), [#491](https://github.com/discord-tickets/bot/issues/491)) ([#520](https://github.com/discord-tickets/bot/issues/520)) ([5f77b28](https://github.com/discord-tickets/bot/commit/5f77b2801292e117e2d8b52fbb6ed51b13be716f))
+* lockfile ([69a1eea](https://github.com/discord-tickets/bot/commit/69a1eea7c7681175d24078a6da76d565c7f1f801))
+* log banner colours on Pterodactyl ([e6f87a8](https://github.com/discord-tickets/bot/commit/e6f87a8bf587010d6a8de0845f263d541adbdc54))
+* only send value if not empty (closes [#458](https://github.com/discord-tickets/bot/issues/458)) ([bcd02b1](https://github.com/discord-tickets/bot/commit/bcd02b1dead34f2c674a2c9f90a8e03aecb9198b))
+* remove ghost files ([916f3fe](https://github.com/discord-tickets/bot/commit/916f3fee78e1657ae0e029ea2ae614109ee3bdc2))
+* setting min-length in settings panel ([73c30c8](https://github.com/discord-tickets/bot/commit/73c30c84bd7adcde959b73a5bc3fb8cfdb5950e1))
+* use more appropriate status code ([036c208](https://github.com/discord-tickets/bot/commit/036c208cf8bf36ac7b0ddfe78750f933e6450a62))
+
+
+### Features
+
+* add `HTTP_INTERNAL` env variable ([10eef10](https://github.com/discord-tickets/bot/commit/10eef102165f30e98a759b145bf3e88b4d2c0095))
+* allow other CWD ([c596e23](https://github.com/discord-tickets/bot/commit/c596e237dee91ab275b1bccab49eaf004f6dd399))
+* **docker:** separate installation & working directories ([c4d96e8](https://github.com/discord-tickets/bot/commit/c4d96e8ee2408ec2d395b5f4106f1fa1f682ef73))
+* **http:** `prompt=none` (closes [#507](https://github.com/discord-tickets/bot/issues/507)) ([5e5de6b](https://github.com/discord-tickets/bot/commit/5e5de6b4d9b6828a9fc4ff3c7d9ceca911d4dce9))
+* **i18n:** update Russian translations ([7318211](https://github.com/discord-tickets/bot/commit/731821135088357c8260946e7f9457a2e1765992))
+* **i18n:** update Turkish translations ([0e81c48](https://github.com/discord-tickets/bot/commit/0e81c4833e366f33c0ff6260ba54e27b6a25c816))
+* **i18n:** update Turkish translations ([d70c557](https://github.com/discord-tickets/bot/commit/d70c5574f88f55ad323530968bb3e70f175ae14d))
+* **i18n:** update Turkish translations ([33145bb](https://github.com/discord-tickets/bot/commit/33145bb8df48bb720149b20703bc9f6b15c28c62))
+* **pterodactyl:** improve egg ([e8456c0](https://github.com/discord-tickets/bot/commit/e8456c09f1f4f3ecfc156dacbdce5ce33f2762ff))
+* **ptreodactyl:** new egg ([#515](https://github.com/discord-tickets/bot/issues/515)) ([db4fd84](https://github.com/discord-tickets/bot/commit/db4fd843f46213b3e1a468dd050ed411e5bf7833))
+
+
+
+## [4.0.13](https://github.com/discord-tickets/bot/compare/v4.0.12...v4.0.13) (2023-12-24)
+
+
+### Bug Fixes
+
+* `npx` stdin command's child process stderr logging ([296002e](https://github.com/discord-tickets/bot/commit/296002e04f545189912b05ef92dae68085fef33e))
+* allow no activities ([bd15bd8](https://github.com/discord-tickets/bot/commit/bd15bd8145f4f9fe9b35e4069feafe04777a7d67))
+
+
+### Features
+
+* **i18n:** add Thai translations ([e2a88f8](https://github.com/discord-tickets/bot/commit/e2a88f82e7189814b15edf3834e153d8dfed6ae4))
+* **i18n:** update Finnish translations ([f5b2fc7](https://github.com/discord-tickets/bot/commit/f5b2fc795b37dd81bfdf11f4a848f3666b687e06))
+* **i18n:** update Hungarian translations ([717ed0f](https://github.com/discord-tickets/bot/commit/717ed0f4052e1b8c2768e32e33301b0461ed4fd8))
+* **i18n:** update Italian translations ([c021f8a](https://github.com/discord-tickets/bot/commit/c021f8a42345de34fc7f64c8a9599778cdf0b721))
+* **i18n:** update Italian translations ([cbc62dc](https://github.com/discord-tickets/bot/commit/cbc62dcb046ea96e251c17207cdb5fcd06199b0a))
+* **i18n:** update Italian translations ([26e3ac2](https://github.com/discord-tickets/bot/commit/26e3ac26cec2b320fe17a06bfb3c5e6c4b5082e2))
+* **i18n:** update Thai translations ([106473b](https://github.com/discord-tickets/bot/commit/106473b26ab137346b3c587e51725ae122ed3bf7))
+* **i18n:** update Thai translations ([e30fb14](https://github.com/discord-tickets/bot/commit/e30fb146d7a88e0ba28e02c3a8f55a56e918835a))
+* **i18n:** update Thai translations ([081d7a8](https://github.com/discord-tickets/bot/commit/081d7a8cebffade6f849d104d00ea4f85421de71))
+* **i18n:** update Thai translations ([fcd174d](https://github.com/discord-tickets/bot/commit/fcd174d827b1df1b42337a3757fa8c89e857743c))
+
+
+
+## [4.0.12](https://github.com/discord-tickets/bot/compare/v4.0.11...v4.0.12) (2023-11-18)
+
+
+### Bug Fixes
+
+* activity name update ([#503](https://github.com/discord-tickets/bot/issues/503)) ([12c4c96](https://github.com/discord-tickets/bot/commit/12c4c96c1fe7c56990fd385fc9e26217ea9ff467))
+
+
+
 ## [4.0.11](https://github.com/discord-tickets/bot/compare/v4.0.10...v4.0.11) (2023-11-16)
 
 
